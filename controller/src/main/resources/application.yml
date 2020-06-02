@@ -1,0 +1,52 @@
+# 服务端口
+server:
+  port: 8080
+
+logging:
+  level:
+    root: info
+
+spring:
+
+  profiles:
+    active: dev
+  mvc:
+    # 未找到页面, 直接抛出异常ss
+    throw-exception-if-no-handler-found: true
+  resources:
+    # 不要为我们工程中的资源文件建立映射
+    add-mappings: false
+  # 数据源配置
+  datasource:
+    druid:
+      url: jdbc:mysql://127.0.0.1:3306/kangkang?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+      # 初始化大小，最小，最大
+      initial-size: 5
+      max-active: 10
+      min-idle: 5
+      # 配置获取连接等待超时的时间
+      max-wait: 6000
+
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.media.his.entity
+  configuration:
+  #JavaBean实体类属性命的自动驼峰命名转换
+    mapUnderscoreToCamelCase: true
+#  typeEnumsPackage: com.baomidou.springboot.entity.enums
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    id-type: 2
+    #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+    field-strategy: 2
+    db-column-underline: true
+    #逻辑删除配置
+#    logic-delete-value: 0
+#    logic-not-delete-value: 1
+#    sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+
