@@ -23,9 +23,12 @@ import java.util.Date;
 public abstract class BaseGlobalExceptionAdviceHandler {
     private Logger LOGGER = LoggerFactory.getLogger(BaseGlobalExceptionAdviceHandler.class);
 
+
     /**
      * 处理自定义
      */
+    @ResponseBody
+    @ExceptionHandler(value = ServiceException.class)
     public Result handServiceException(ServiceException e) {
         Result result = new Result(LanguageEnum.LANG_ZH_CN.getLanguageDesc(), e.getCode(), null);
         result.setServiceTime(new Date());
@@ -39,6 +42,7 @@ public abstract class BaseGlobalExceptionAdviceHandler {
         SystemContextHolder.remove();
         return result;
     }
+
 
     /**
      * 处理系统异常

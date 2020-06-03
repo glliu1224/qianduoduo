@@ -1,12 +1,18 @@
 package com.media.his.util;
 
 
+import org.apache.http.NameValuePair;
 import org.apache.http.client.config.RequestConfig;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
 import javax.servlet.http.Cookie;
@@ -15,7 +21,9 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.URI;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -199,4 +207,94 @@ public class HttpUtil {
         }
         return resultString;
     }
+
+    public static String doGet(String url){
+        return doGet(url,null);
+    }
+
+    /**
+     * httpclient doPost
+     */
+    public  static String doPost(String url,Map<String,String> param){
+        CloseableHttpResponse response = null;
+        String requestString = "";
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        try{
+            HttpPost httpPost = new HttpPost(url);
+            if(param != null){
+                List<NameValuePair> paramList = new ArrayList<>();
+                for(String key : param.keySet()){
+                    paramList.add(new BasicNameValuePair(key,param.get(key)));
+                }
+                UrlEncodedFormEntity entity = new UrlEncodedFormEntity(paramList);
+                httpPost.setEntity(entity);
+            }
+            response = httpClient.execute(httpPost);
+            requestString = EntityUtils.toString(response.getEntity(), "utf-8");
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try{
+                if(response != null){
+                    response.close();
+                }
+                response.close();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+        return requestString;
+    }
+
+    public static String doPost(String url){
+        return doPost(url,null);
+    }
+
+
+
+    /**
+     * httpclient doPostJson
+     */
+    public  static String doPostJson(String url,String json){
+        CloseableHttpResponse response = null;
+        String requestString = "";
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        try{
+            HttpPost httpPost = new HttpPost(url);
+            StringEntity entity = new StringEntity(json, ContentType.APPLICATION_JSON);
+            httpPost.setEntity(entity);
+            response = httpClient.execute(httpPost);
+            requestString = EntityUtils.toString(response.getEntity(), "utf-8");
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try{
+                if(response != null){
+                    response.close();
+                }
+                response.close();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+        return requestString;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

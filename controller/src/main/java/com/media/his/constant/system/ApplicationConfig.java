@@ -37,9 +37,6 @@ public class ApplicationConfig {
      * 初始化
      */
     public synchronized void init() {
-        long now = System.currentTimeMillis();
-        LOGGER.info("初始ApplicationConfig开始...");
-        LOGGER.info("初始化ApplicationConfig完成...消耗：{}毫秒!", System.currentTimeMillis() - now);
 
         CURRENT_SYSTEM_ENV = profile;
         if ("dev".equals(CURRENT_SYSTEM_ENV) || "uat".equals(CURRENT_SYSTEM_ENV)) {

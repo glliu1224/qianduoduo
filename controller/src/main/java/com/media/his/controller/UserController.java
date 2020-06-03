@@ -32,7 +32,7 @@ public class UserController {
 
     @GetMapping("/getUser")
     public PeopleVO findUser(@RequestParam("id") Integer id){
-        int i = 1/0;
+        //int i = 1/0;
         return userService.findUser(id);
     }
 
