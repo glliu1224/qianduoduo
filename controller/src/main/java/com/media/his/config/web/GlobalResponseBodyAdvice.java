@@ -4,6 +4,7 @@ import com.media.his.constant.enums.LanguageEnum;
 import com.media.his.constant.exception.ExceptionConstants;
 import com.media.his.constant.holder.SystemContextHolder;
 import com.media.his.constant.result.Result;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -33,7 +34,6 @@ public class GlobalResponseBodyAdvice implements ResponseBodyAdvice<Object> {
             ((Result) obj).setMessage("请求成功");
             ((Result) obj).setServiceTime(new Date());
         }
-
         //remove ThreadLocal
         SystemContextHolder.remove();
         return obj;

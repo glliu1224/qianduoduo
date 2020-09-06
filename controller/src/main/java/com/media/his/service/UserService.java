@@ -31,4 +31,9 @@ public class UserService {
         PeopleVO peopleVO = EntityUtil.convert(peopleDO, PeopleVO.class);
         return peopleVO;
     }
+
+    public Integer insertBatch() {
+        userApi.insertBatch();
+        return 1;
+    }
 }

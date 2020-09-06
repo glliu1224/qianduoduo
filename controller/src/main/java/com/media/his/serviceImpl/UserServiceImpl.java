@@ -6,6 +6,8 @@ import com.media.his.entity.PeopleDO;
 import com.media.his.mapper.UserMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, PeopleDO> implements UserApi {
 
@@ -17,5 +19,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, PeopleDO> implement
     @Override
     public PeopleDO findUser(Integer id) {
         return baseMapper.findUserById(id);
+    }
+
+    @Override
+    public boolean insertBatch() {
+        return true;
     }
 }

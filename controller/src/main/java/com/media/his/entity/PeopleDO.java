@@ -4,11 +4,13 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.media.his.config.common.FieldMeta;
+import lombok.Builder;
 import lombok.Data;
 
 
 @Data
 @TableName("people")
+@Builder
 public class PeopleDO {
 
     @TableId(value = "id", type = IdType.AUTO)

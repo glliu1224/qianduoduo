@@ -26,7 +26,7 @@ public class UserController {
     }
 
     @PostMapping("/save")
-    public Integer saveUser(PeopleDO user){
+    public Integer saveUser(@RequestBody PeopleDO user){
         return userService.save(user);
     }
 
@@ -36,12 +36,9 @@ public class UserController {
         return userService.findUser(id);
     }
 
-    public static void main(String[] args) {
-        BigDecimal i = new BigDecimal("20.0000");
-        BigDecimal j = new BigDecimal("1.06");
-        BigDecimal divide = i.divide(j,4,BigDecimal.ROUND_HALF_UP);
-        System.out.println(divide);
-
+    @PostMapping("/insertBatch")
+    public Integer insertBatch() {
+        return userService.insertBatch();
     }
 
 
