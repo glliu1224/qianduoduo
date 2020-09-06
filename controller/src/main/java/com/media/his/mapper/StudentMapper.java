@@ -19,4 +19,8 @@ public interface StudentMapper extends BaseMapper<StudentDO> {
     List<StudentDO> findPhoneNumberByAge(@Param("age") int age);
 
     List<String> findPhoneNumber();
+
+    Integer findMaxId();
+
+    List<StudentDO> findAllPhoneNumber(@Param("start") int start, @Param("end") int end);
 }

@@ -5,11 +5,17 @@ import com.media.his.mapper.StudentMapper;
 import com.media.his.entity.StudentDO;
 import com.media.his.pojoVO.StudentVO;
 import com.media.his.service.StudentService;
+import com.media.his.task.StudentNumberTask;
 import com.media.his.util.EntityUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.ForkJoinTask;
 
 @Service
 @Slf4j
@@ -47,4 +53,13 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper,StudentDO> imp
         return baseMapper.findPhoneNumber();
     }
 
+    @Override
+    public Integer findMaxId() {
+        return baseMapper.findMaxId();
+    }
+
+    @Override
+    public List<StudentDO> findAllPhoneNumber(int start,int end){
+        return baseMapper.findAllPhoneNumber(start,end);
+    }
 }

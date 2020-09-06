@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 @Service
 public interface StudentService extends IService<StudentDO>{
@@ -20,4 +21,8 @@ public interface StudentService extends IService<StudentDO>{
     List<StudentDO> findPhoneNumberByAge(@Param("age") int age);
 
     List<String> findPhoneNumber();
+
+    Integer findMaxId();
+
+    List<StudentDO> findAllPhoneNumber(@Param("start") int start,@Param("end") int end) throws ExecutionException, InterruptedException;
 }

@@ -31,4 +31,13 @@
     <select id="findPhoneNumber" resultType="java.lang.String">
         SELECT phone_number FROM student;
     </select>
+
+    <select id="findMaxId" resultType="java.lang.Integer">
+        SELECT max(id) from student
+    </select>
+
+    <select id="findAllPhoneNumber" resultType="java.lang.String">
+        SELECT student.name,student.phone_number,student.address,student.address from student WHERE id
+        BETWEEN #{start} AND #{end}
+    </select>
 </mapper>

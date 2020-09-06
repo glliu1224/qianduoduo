@@ -40,4 +40,13 @@ public class UserApiTest {
             System.out.println(road);
         }
     }
+
+    @Test
+    public void test1() {
+        int count = 72254;
+        double ceil = Math.ceil(count / 100);
+        System.out.println(ceil);
+        int x = (int) Math.ceil(count / 100) * 100;
+        System.out.println(x);
+    }
 }
