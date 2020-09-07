@@ -8,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Slf4j
 public class StudentKtServiceImpl extends ServiceImpl<StudentKtMapper, StudentKtDO> implements StudentKtService {
@@ -18,5 +20,20 @@ public class StudentKtServiceImpl extends ServiceImpl<StudentKtMapper, StudentKt
     @Override
     public StudentKtDO findStudentKtById(int id) {
         return studentKtMapper.selectById(id);
+    }
+
+    @Override
+    public List<StudentKtDO> findAllStudentKtDO() {
+        return studentKtMapper.selectAllStudentKtDO();
+    }
+
+    @Override
+    public List<StudentKtDO> findAllStudentKtDOByStartAndEnd(int start, int end) {
+        return studentKtMapper.selectAllStudentKtDOByStartAndEnd(start,end);
+    }
+
+    @Override
+    public int getMaxId() {
+        return studentKtMapper.selectMaxId();
     }
 }

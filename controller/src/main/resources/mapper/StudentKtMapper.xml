@@ -16,4 +16,20 @@
         SELECT s.id,s.name,s.phone_number,s.email,s.create_time
         FROM student_kt WHERE id = #{id}
     </select>
+
+    <select id="selectAllStudentKtDO" resultType="com.media.his.entity.StudentKtDO">
+        SELECT name,phone_number,address,email,create_time,update_time FROM student_kt WHERE is_delete = 1
+    </select>
+
+    <select id="selectAllStudentKtDOByStartAndEnd" resultType="com.media.his.entity.StudentKtDO">
+        SELECT name,phone_number,address,email,create_time,update_time FROM
+        student_kt
+        WHERE is_delete = 1
+        AND id <![CDATA[ > ]]> #{start}
+        AND id <![CDATA[ <= ]]> #{end}
+    </select>
+
+    <select id="selectMaxId" resultType="java.lang.Integer">
+        SELECT max(id) from student_kt
+    </select>
 </mapper>
