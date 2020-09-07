@@ -20,9 +20,9 @@ spring:
   # 数据源配置
   datasource:
     druid:
-      url: jdbc:mysql://127.0.0.1:3306/login?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+      url: jdbc:mysql://127.0.0.1:3306/jingdong_test?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
       username: root
-      password: 1234
+      password: 123456
       driver-class-name: com.mysql.jdbc.Driver
       # 初始化大小，最小，最大
       initial-size: 5

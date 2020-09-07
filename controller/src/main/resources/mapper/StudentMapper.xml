@@ -36,7 +36,7 @@
         SELECT max(id) from student
     </select>
 
-    <select id="findAllPhoneNumber" resultType="java.lang.String">
+    <select id="findAllPhoneNumber" resultType="com.media.his.entity.StudentDO">
         SELECT student.name,student.phone_number,student.address,student.address from student WHERE id
         BETWEEN #{start} AND #{end}
     </select>
