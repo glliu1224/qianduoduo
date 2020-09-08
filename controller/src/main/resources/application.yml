@@ -36,7 +36,7 @@ mybatis-plus:
   typeAliasesPackage: com.media.his.entity
   configuration:
 #  打印sql
-#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   #JavaBean实体类属性命的自动驼峰命名转换
     mapUnderscoreToCamelCase: true
 #  typeEnumsPackage: com.baomidou.springboot.entity.enums

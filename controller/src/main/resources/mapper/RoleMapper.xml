@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.media.his.mapper.RoleMapper">
+
+    <insert id="insertBatch">
+        INSERT INTO role
+        (role_name, create_time,update_time)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (#{item.roleName},#{item.createTime},#{item.updateTime})
+        </foreach>
+        ON DUPLICATE KEY UPDATE
+        role_name=VALUES(role_name),update_time=VALUES(update_time),create_time = VALUES(create_time)
+    </insert>
+</mapper>

@@ -9,12 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinTask;
-
 @RestController
 @RequestMapping("/studentKt")
 @Slf4j
@@ -50,5 +48,4 @@ public class StudentKtController {
         log.info("获取集合数据耗时--->{}", System.currentTimeMillis() - str);
         return list;
     }
-
 }

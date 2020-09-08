@@ -18,16 +18,11 @@
 		<groupId>com.media</groupId>
 		<artifactId>his</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.media</groupId>
 	<artifactId>controller</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>controller</name>
 	<description>Demo project for Spring Boot</description>
-
-
-
-
 
 </project>
