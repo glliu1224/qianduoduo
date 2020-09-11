@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PeopleServiceImpl extends ServiceImpl<PeopleMapper,PeopleDO> implements PeopleService{
+public class PeopleServiceImpl extends ServiceImpl<PeopleMapper, PeopleDO> implements PeopleService {
 
     @Override
     public boolean insertBatch(List<PeopleDO> entityList) {

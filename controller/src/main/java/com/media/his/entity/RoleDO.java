@@ -3,6 +3,7 @@ package com.media.his.entity;
 import lombok.Data;
 
 import java.util.Date;
+
 @Data
 public class RoleDO {
     private Integer id;
@@ -13,7 +14,7 @@ public class RoleDO {
 
     private Date updateTime;
 
-    static class Builder{
+    static class Builder {
         private RoleDO roleDO;
 
         public Builder(RoleDO roleDO) {

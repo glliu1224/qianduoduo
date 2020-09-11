@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 @Mapper
-public interface UserMapper  extends BaseMapper<PeopleDO> {
+public interface UserMapper extends BaseMapper<PeopleDO> {
 
     PeopleDO findUserById(@Param("id") Integer id);
 }

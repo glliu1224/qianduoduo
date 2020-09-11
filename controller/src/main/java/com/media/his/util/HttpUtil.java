@@ -171,6 +171,7 @@ public class HttpUtil {
 
     /**
      * Http请求
+     *
      * @param url
      * @param param
      * @return
@@ -208,93 +209,76 @@ public class HttpUtil {
         return resultString;
     }
 
-    public static String doGet(String url){
-        return doGet(url,null);
+    public static String doGet(String url) {
+        return doGet(url, null);
     }
 
     /**
      * httpclient doPost
      */
-    public  static String doPost(String url,Map<String,String> param){
+    public static String doPost(String url, Map<String, String> param) {
         CloseableHttpResponse response = null;
         String requestString = "";
         CloseableHttpClient httpClient = HttpClients.createDefault();
-        try{
+        try {
             HttpPost httpPost = new HttpPost(url);
-            if(param != null){
+            if (param != null) {
                 List<NameValuePair> paramList = new ArrayList<>();
-                for(String key : param.keySet()){
-                    paramList.add(new BasicNameValuePair(key,param.get(key)));
+                for (String key : param.keySet()) {
+                    paramList.add(new BasicNameValuePair(key, param.get(key)));
                 }
                 UrlEncodedFormEntity entity = new UrlEncodedFormEntity(paramList);
                 httpPost.setEntity(entity);
             }
             response = httpClient.execute(httpPost);
             requestString = EntityUtils.toString(response.getEntity(), "utf-8");
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            try{
-                if(response != null){
+        } finally {
+            try {
+                if (response != null) {
                     response.close();
                 }
                 response.close();
-            }catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
         return requestString;
     }
 
-    public static String doPost(String url){
-        return doPost(url,null);
+    public static String doPost(String url) {
+        return doPost(url, null);
     }
-
 
 
     /**
      * httpclient doPostJson
      */
-    public  static String doPostJson(String url,String json){
+    public static String doPostJson(String url, String json) {
         CloseableHttpResponse response = null;
         String requestString = "";
         CloseableHttpClient httpClient = HttpClients.createDefault();
-        try{
+        try {
             HttpPost httpPost = new HttpPost(url);
             StringEntity entity = new StringEntity(json, ContentType.APPLICATION_JSON);
             httpPost.setEntity(entity);
             response = httpClient.execute(httpPost);
             requestString = EntityUtils.toString(response.getEntity(), "utf-8");
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            try{
-                if(response != null){
+        } finally {
+            try {
+                if (response != null) {
                     response.close();
                 }
                 response.close();
-            }catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
         return requestString;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

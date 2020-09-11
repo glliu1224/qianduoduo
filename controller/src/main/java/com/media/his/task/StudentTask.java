@@ -8,6 +8,7 @@ import lombok.Data;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.concurrent.Callable;
+
 @Data
 public class StudentTask implements Callable<List<StudentDO>> {
     int age;
@@ -25,7 +26,7 @@ public class StudentTask implements Callable<List<StudentDO>> {
     @Override
     public List<StudentDO> call() throws Exception {
         Method method = clazz.getMethod(methodName, Integer.class);
-        List<StudentDO> list = (List<StudentDO>)method.invoke(service,age);
+        List<StudentDO> list = (List<StudentDO>) method.invoke(service, age);
         return list;
     }
 }

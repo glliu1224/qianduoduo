@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 
 /**
- *  全局异常处理
+ * 全局异常处理
  */
 public abstract class BaseGlobalExceptionAdviceHandler {
     private Logger LOGGER = LoggerFactory.getLogger(BaseGlobalExceptionAdviceHandler.class);
@@ -69,14 +69,15 @@ public abstract class BaseGlobalExceptionAdviceHandler {
                 result.setStack(ExceptionUtils.getStackTrace(e));
             }
         }
-        try{
+        try {
             result.setServiceTime(new Date());
-            addServiceExceptionRecord(request,e);
-        }catch (Exception ex){
-            LOGGER.error("add server exception error:  {}",ExceptionUtils.getStackTrace(e));
+            addServiceExceptionRecord(request, e);
+        } catch (Exception ex) {
+            LOGGER.error("add server exception error:  {}", ExceptionUtils.getStackTrace(e));
         }
         return result;
     }
+
     //异常日志处理 存入db中
     protected abstract void addServiceExceptionRecord(HttpServletRequest request, Exception e);
 }

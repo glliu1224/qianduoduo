@@ -7,11 +7,13 @@ import com.media.his.mapper.ExceptionRecordMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+
 @Service
 public class ServiceExceptionRecordImpl extends ServiceImpl<ExceptionRecordMapper, ServiceExceptionRecordDO> implements IServiceExceptionRecord {
 
     /**
      * 存储异常信息
+     *
      * @param stackTrace
      * @param requestURI
      * @param method

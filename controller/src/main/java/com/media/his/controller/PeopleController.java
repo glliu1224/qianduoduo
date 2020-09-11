@@ -27,7 +27,7 @@ public class PeopleController {
                     .build();
             list.add(peopleDO);
         }
-        peopleService.insertBatch(list,50);
+        peopleService.insertBatch(list, 50);
         return 1;
     }
 }

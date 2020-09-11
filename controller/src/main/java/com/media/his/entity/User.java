@@ -48,7 +48,7 @@ public class User {
     }
 
 
-    private User(Builder builder){
+    private User(Builder builder) {
         this.id = builder.id;
         this.name = builder.name;
         this.email = builder.email;

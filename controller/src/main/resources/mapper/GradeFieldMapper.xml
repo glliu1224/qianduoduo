@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.media.his.mapper.GradeFieldMapper" >
-  <resultMap id="BaseResultMap" type="com.media.his.entity.GradeField" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="field_name" property="fieldName" jdbcType="VARCHAR" />
-    <result column="menu_type" property="menuType" jdbcType="INTEGER" />
-    <result column="is_parent" property="isParent" jdbcType="INTEGER" />
-    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
-    <result column="is_valid" property="isValid" jdbcType="INTEGER" />
-    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
-    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from grade_field
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.media.his.entity.GradeField" >
-    insert into grade_field (id, field_name, menu_type, 
-      is_parent, parent_id, is_valid, 
-      create_time, update_time)
-    values (#{id,jdbcType=INTEGER}, #{fieldName,jdbcType=VARCHAR}, #{menuType,jdbcType=INTEGER}, 
-      #{isParent,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{isValid,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.media.his.entity.GradeField" >
-    update grade_field
-    set field_name = #{fieldName,jdbcType=VARCHAR},
-      menu_type = #{menuType,jdbcType=INTEGER},
-      is_parent = #{isParent,jdbcType=INTEGER},
-      parent_id = #{parentId,jdbcType=INTEGER},
-      is_valid = #{isValid,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select id, field_name, menu_type, is_parent, parent_id, is_valid, create_time, update_time
-    from grade_field
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap" >
-    select id, field_name, menu_type, is_parent, parent_id, is_valid, create_time, update_time
-    from grade_field
-  </select>
+<mapper namespace="com.media.his.mapper.GradeFieldMapper">
+    <resultMap id="BaseResultMap" type="com.media.his.entity.GradeField">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="field_name" property="fieldName" jdbcType="VARCHAR"/>
+        <result column="menu_type" property="menuType" jdbcType="INTEGER"/>
+        <result column="is_parent" property="isParent" jdbcType="INTEGER"/>
+        <result column="parent_id" property="parentId" jdbcType="INTEGER"/>
+        <result column="is_valid" property="isValid" jdbcType="INTEGER"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from grade_field
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.media.his.entity.GradeField">
+        insert into grade_field (id, field_name, menu_type,
+        is_parent, parent_id, is_valid,
+        create_time, update_time)
+        values (#{id,jdbcType=INTEGER}, #{fieldName,jdbcType=VARCHAR}, #{menuType,jdbcType=INTEGER},
+        #{isParent,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{isValid,jdbcType=INTEGER},
+        #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="com.media.his.entity.GradeField">
+        update grade_field
+        set field_name = #{fieldName,jdbcType=VARCHAR},
+        menu_type = #{menuType,jdbcType=INTEGER},
+        is_parent = #{isParent,jdbcType=INTEGER},
+        parent_id = #{parentId,jdbcType=INTEGER},
+        is_valid = #{isValid,jdbcType=INTEGER},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+        update_time = #{updateTime,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select id, field_name, menu_type, is_parent, parent_id, is_valid, create_time, update_time
+        from grade_field
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select id, field_name, menu_type, is_parent, parent_id, is_valid, create_time, update_time
+        from grade_field
+    </select>
 </mapper>

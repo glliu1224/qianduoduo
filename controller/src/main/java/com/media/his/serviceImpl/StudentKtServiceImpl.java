@@ -29,7 +29,7 @@ public class StudentKtServiceImpl extends ServiceImpl<StudentKtMapper, StudentKt
 
     @Override
     public List<StudentKtDO> findAllStudentKtDOByStartAndEnd(int start, int end) {
-        return studentKtMapper.selectAllStudentKtDOByStartAndEnd(start,end);
+        return studentKtMapper.selectAllStudentKtDOByStartAndEnd(start, end);
     }
 
     @Override

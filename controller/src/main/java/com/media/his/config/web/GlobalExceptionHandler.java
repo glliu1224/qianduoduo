@@ -16,6 +16,7 @@ import java.util.Date;
 public class GlobalExceptionHandler extends BaseGlobalExceptionAdviceHandler {
     @Autowired
     private IServiceExceptionRecord serviceExceptionRecord;
+
     @Override
     protected void addServiceExceptionRecord(HttpServletRequest request, Exception e) {
         serviceExceptionRecord.addServiceExceptionRecord(

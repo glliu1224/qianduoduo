@@ -302,10 +302,11 @@ public class DateUtil {
     /**
      * 取得日期所在的前/后几天
      * +值后几天  -值前几天
+     *
      * @param date
      * @return
      */
-    public static Date getDayBeforeOrNext(Date date,Integer phase) {
+    public static Date getDayBeforeOrNext(Date date, Integer phase) {
         Calendar c = Calendar.getInstance();
         if (date != null) {
             c.setTime(date);
@@ -329,6 +330,7 @@ public class DateUtil {
         calendar.add(Calendar.DAY_OF_YEAR, 1);
         return calendar.getTime();
     }
+
     /**
      * 获取日期的小时分钟字符串
      *
@@ -531,7 +533,6 @@ public class DateUtil {
         }
         return new SimpleDateFormat(pattern).format(date);
     }
-
 
 
     /**
@@ -893,7 +894,7 @@ public class DateUtil {
      */
     public static String calculateAgeByBirthday(String birthday) {
         try {
-            if (CheckUtil.isEmpty(birthday)){
+            if (CheckUtil.isEmpty(birthday)) {
                 return null;
             }
             Date birthdayDate = new SimpleDateFormat(DateUtil.DATE_FORMAT_YEAR_MONTH_DAY).parse(birthday);

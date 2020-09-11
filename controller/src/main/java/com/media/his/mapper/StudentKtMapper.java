@@ -14,7 +14,7 @@ public interface StudentKtMapper extends BaseMapper<StudentKtDO> {
 
     List<StudentKtDO> selectAllStudentKtDO();
 
-    List<StudentKtDO> selectAllStudentKtDOByStartAndEnd(@Param("start") int start,@Param("end") int end);
+    List<StudentKtDO> selectAllStudentKtDOByStartAndEnd(@Param("start") int start, @Param("end") int end);
 
     int selectMaxId();
 

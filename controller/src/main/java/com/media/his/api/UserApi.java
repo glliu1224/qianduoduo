@@ -6,7 +6,7 @@ import com.media.his.entity.PeopleDO;
 import java.util.List;
 
 
-public interface UserApi{
+public interface UserApi {
 
     Integer save(PeopleDO userVO);
 

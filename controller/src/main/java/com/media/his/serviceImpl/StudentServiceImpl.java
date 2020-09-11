@@ -19,13 +19,13 @@ import java.util.concurrent.ForkJoinTask;
 
 @Service
 @Slf4j
-public class StudentServiceImpl extends ServiceImpl<StudentMapper,StudentDO> implements StudentService{
+public class StudentServiceImpl extends ServiceImpl<StudentMapper, StudentDO> implements StudentService {
 
     public List<StudentVO> findStudentByAge(int age) {
         long start = System.currentTimeMillis();
         List<StudentDO> studentByAge = baseMapper.findStudentByAge(age);
         long end = System.currentTimeMillis();
-        log.info("查询数据耗时:{}",(end - start));
+        log.info("查询数据耗时:{}", (end - start));
         long l = System.currentTimeMillis();
         List<StudentVO> convert = EntityUtil.convert(studentByAge, StudentVO.class);
         long l1 = System.currentTimeMillis();
@@ -59,8 +59,8 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper,StudentDO> imp
     }
 
     @Override
-    public List<StudentDO> findAllPhoneNumber(int start,int end){
-        return baseMapper.findAllPhoneNumber(start,end);
+    public List<StudentDO> findAllPhoneNumber(int start, int end) {
+        return baseMapper.findAllPhoneNumber(start, end);
     }
 
     @Override

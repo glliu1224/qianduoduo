@@ -21,17 +21,17 @@ public class UserController {
     }
 
     @RequestMapping("/hello")
-    public String hello(){
+    public String hello() {
         return "hello springBoot";
     }
 
     @PostMapping("/save")
-    public Integer saveUser(@RequestBody PeopleDO user){
+    public Integer saveUser(@RequestBody PeopleDO user) {
         return userService.save(user);
     }
 
     @GetMapping("/getUser")
-    public PeopleVO findUser(@RequestParam("id") Integer id){
+    public PeopleVO findUser(@RequestParam("id") Integer id) {
         //int i = 1/0;
         return userService.findUser(id);
     }

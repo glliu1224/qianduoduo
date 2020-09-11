@@ -5,6 +5,7 @@ import java.util.Date;
 public interface IServiceExceptionRecord {
     /**
      * 存储异常信息
+     *
      * @param stackTrace
      * @param requestURI
      * @param method

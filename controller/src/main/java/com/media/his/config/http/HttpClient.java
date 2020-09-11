@@ -21,7 +21,7 @@ public class HttpClient {
      * 实例化连接池管理器
      */
     @Bean(name = "httpClientConnectionManager")
-    public PoolingHttpClientConnectionManager getHttpClientConnectionManager(){
+    public PoolingHttpClientConnectionManager getHttpClientConnectionManager() {
         PoolingHttpClientConnectionManager httpClientConnectionManager = new PoolingHttpClientConnectionManager();
         httpClientConnectionManager.setMaxTotal(maxTotal);
         httpClientConnectionManager.setDefaultMaxPerRoute(defaultMaxPerRoute);
@@ -32,7 +32,7 @@ public class HttpClient {
      * 注入上面连接池管理器
      */
     @Bean(name = "httpClientBuilder")
-    public HttpClientBuilder getHttpClientBuilder(@Qualifier("httpClientConnectionManager")PoolingHttpClientConnectionManager httpClientConnectionManager){
+    public HttpClientBuilder getHttpClientBuilder(@Qualifier("httpClientConnectionManager") PoolingHttpClientConnectionManager httpClientConnectionManager) {
         HttpClientBuilder httpClientBuilder = HttpClientBuilder.create();
         httpClientBuilder.setConnectionManager(httpClientConnectionManager);
         return httpClientBuilder;
@@ -42,7 +42,7 @@ public class HttpClient {
      * 注入连接池，用于获取httpClient
      */
     @Bean
-    public CloseableHttpClient getCloseableHttpClient(@Qualifier("httpClientBuilder")HttpClientBuilder httpClientBuilder){
+    public CloseableHttpClient getCloseableHttpClient(@Qualifier("httpClientBuilder") HttpClientBuilder httpClientBuilder) {
         return httpClientBuilder.build();
     }
 
@@ -50,7 +50,7 @@ public class HttpClient {
      * 设置builder的链接信息
      */
     @Bean(name = "builder")
-    public RequestConfig.Builder getBuilder(){
+    public RequestConfig.Builder getBuilder() {
         RequestConfig.Builder builder = RequestConfig.custom();
         return builder.setConnectTimeout(connectTimeout)
                 .setConnectionRequestTimeout(connectionRequestTimeout)
@@ -62,23 +62,9 @@ public class HttpClient {
      * 使用builder构建一个RequestConfig对象
      */
     @Bean
-    public  RequestConfig getRequestConfig(@Qualifier("builder")RequestConfig.Builder builder){
+    public RequestConfig getRequestConfig(@Qualifier("builder") RequestConfig.Builder builder) {
         return builder.build();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

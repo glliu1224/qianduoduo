@@ -8,5 +8,6 @@ import java.lang.annotation.*;
 @Inherited
 public @interface DuplicateSubmitToken {
     String key() default "";
+
     int expire() default 5;
 }

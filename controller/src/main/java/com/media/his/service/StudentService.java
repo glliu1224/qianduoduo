@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 @Service
-public interface StudentService extends IService<StudentDO>{
+public interface StudentService extends IService<StudentDO> {
 
     List<StudentVO> findStudentByAge(int age);
 
@@ -24,7 +24,7 @@ public interface StudentService extends IService<StudentDO>{
 
     Integer findMaxId();
 
-    List<StudentDO> findAllPhoneNumber(@Param("start") int start,@Param("end") int end) throws ExecutionException, InterruptedException;
+    List<StudentDO> findAllPhoneNumber(@Param("start") int start, @Param("end") int end) throws ExecutionException, InterruptedException;
 
     List<StudentDO> findStudentDOByName(@Param("list") List<String> list);
 }

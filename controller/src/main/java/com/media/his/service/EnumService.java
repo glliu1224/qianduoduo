@@ -15,28 +15,27 @@ public class EnumService {
     /**
      * 获取所有枚举值
      */
-    public Map<String, Object> findAllEnum(){
+    public Map<String, Object> findAllEnum() {
         Map<String, Object> enumMap = new HashMap<>();
-        enumMap.put(getEnumName(LanguageEnum.class),getAllEnum(LanguageEnum.class));
+        enumMap.put(getEnumName(LanguageEnum.class), getAllEnum(LanguageEnum.class));
         return enumMap;
     }
-
 
 
     /**
      * 获取枚举类名称
      */
     private String getEnumName(Class zClass) {
-        Preconditions.checkNotNull(zClass,"Class can't null!");
+        Preconditions.checkNotNull(zClass, "Class can't null!");
         return zClass.getSimpleName();
     }
 
     private Object getAllEnum(Class zClass) {
-        Preconditions.checkNotNull(zClass,"Class can't null!");
+        Preconditions.checkNotNull(zClass, "Class can't null!");
         //语言枚举
-        if(zClass.equals(LanguageEnum.class)){
+        if (zClass.equals(LanguageEnum.class)) {
             List<LanguageEnumDTO> results = new ArrayList<>();
-            for(LanguageEnum languageEnum : LanguageEnum.values()){
+            for (LanguageEnum languageEnum : LanguageEnum.values()) {
                 LanguageEnumDTO dto = new LanguageEnumDTO();
                 dto.setId(languageEnum.getLanguage());
                 dto.setLanguage(languageEnum.getLanguage());
@@ -49,8 +48,6 @@ public class EnumService {
 
         return null;
     }
-
-
 
 
 }

@@ -14,7 +14,7 @@ import org.springframework.boot.CommandLineRunner;
 
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
-public class SystemInitConfig implements CommandLineRunner,EnvironmentAware {
+public class SystemInitConfig implements CommandLineRunner, EnvironmentAware {
     private static final Logger LOGGER = LoggerFactory.getLogger(SystemInitConfig.class);
 
     @Autowired
@@ -24,6 +24,7 @@ public class SystemInitConfig implements CommandLineRunner,EnvironmentAware {
 
     /**
      * 初始化项目
+     *
      * @param environment
      */
     @Override
@@ -33,7 +34,7 @@ public class SystemInitConfig implements CommandLineRunner,EnvironmentAware {
             LOGGER.debug("初始化 HisApplication开始");
         }
         if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("初始化 HisApplication完成...消耗： {}毫秒",System.currentTimeMillis() - now);
+            LOGGER.debug("初始化 HisApplication完成...消耗： {}毫秒", System.currentTimeMillis() - now);
         }
     }
 
@@ -41,7 +42,7 @@ public class SystemInitConfig implements CommandLineRunner,EnvironmentAware {
      * 在服务器启动后执行，会在@Bean实例化之后执行
      */
     @Override
-    public void run(String... Strings) throws Exception{
+    public void run(String... Strings) throws Exception {
         //初始化项目信息
         applicationConfig.init();
         //初始化缓存信息

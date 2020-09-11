@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- *  Rest接口返回信息
+ * Rest接口返回信息
  */
 @Data
 public class Result<T> implements Serializable {
@@ -35,7 +35,7 @@ public class Result<T> implements Serializable {
      */
     private Object stack;
 
-    public Result(String language,Integer code,T date){
+    public Result(String language, Integer code, T date) {
         this.language = language;
         this.code = code;
         this.data = date;

@@ -80,6 +80,7 @@ public class ServiceExceptionImpl implements IServiceException {
 
     /**
      * 返回业务异常
+     *
      * @param code
      * @return
      */

@@ -5,22 +5,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class IdleConnectionEvictor extends Thread{
+public class IdleConnectionEvictor extends Thread {
     @Autowired
     private PoolingHttpClientConnectionManager coonMge;
 
     private volatile boolean shutdown;
 
-    public  IdleConnectionEvictor(){
+    public IdleConnectionEvictor() {
         super();
         super.start();
     }
 
     @Override
-    public void run(){
-        try{
-            while(!shutdown){
-                synchronized (this){
+    public void run() {
+        try {
+            while (!shutdown) {
+                synchronized (this) {
                     wait(5000);
                     coonMge.closeExpiredConnections();
                 }
@@ -32,9 +32,9 @@ public class IdleConnectionEvictor extends Thread{
     }
 
     //关闭清理无效链接的线程
-    public void  shutdown(){
+    public void shutdown() {
         shutdown = true;
-        synchronized (this){
+        synchronized (this) {
             notifyAll();
         }
     }

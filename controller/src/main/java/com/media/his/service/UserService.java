@@ -16,6 +16,7 @@ public class UserService {
 
     /**
      * 保存user
+     *
      * @param user
      */
     public Integer save(PeopleDO user) {
@@ -24,6 +25,7 @@ public class UserService {
 
     /**
      * 查找user
+     *
      * @param id
      */
     public PeopleVO findUser(Integer id) {

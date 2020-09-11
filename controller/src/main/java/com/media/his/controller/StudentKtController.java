@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinTask;
+
 @RestController
 @RequestMapping("/studentKt")
 @Slf4j
@@ -33,7 +34,7 @@ public class StudentKtController {
     public List<StudentKtDO> getAllStudentKt() {
         long start = System.currentTimeMillis();
         List<StudentKtDO> allStudentKtDO = studentKtService.findAllStudentKtDO();
-        log.info("没使用线程池查询耗时--->{}",(System.currentTimeMillis() - start)+"毫秒");
+        log.info("没使用线程池查询耗时--->{}", (System.currentTimeMillis() - start) + "毫秒");
         return allStudentKtDO;
     }
 
@@ -44,7 +45,7 @@ public class StudentKtController {
         long start = System.currentTimeMillis();
         int maxId = studentKtService.getMaxId();
         log.info("获取最大的ID耗时--->{}", (System.currentTimeMillis() - start));
-        StudentKtTask studentKtTask = new StudentKtTask(0,maxId,studentKtService);
+        StudentKtTask studentKtTask = new StudentKtTask(0, maxId, studentKtService);
         ForkJoinTask<List<StudentKtDO>> submit = pool.submit(studentKtTask);
         List<StudentKtDO> list = submit.get();
         pool.shutdown();

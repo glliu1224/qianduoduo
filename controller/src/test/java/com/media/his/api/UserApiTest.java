@@ -24,7 +24,6 @@ import java.util.List;
 public class UserApiTest {
 
 
-
     @Test
     public void getChineseName() {
         String chineseName = StudentUtil.getChineseName();

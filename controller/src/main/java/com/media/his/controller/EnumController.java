@@ -16,7 +16,7 @@ public class EnumController {
     private EnumService enumService;
 
     @GetMapping("all")
-    public Map<String,Object> constans(){
+    public Map<String, Object> constans() {
         return enumService.findAllEnum();
     }
 }

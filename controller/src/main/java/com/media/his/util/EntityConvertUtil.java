@@ -18,7 +18,7 @@ public interface EntityConvertUtil {
             @Mapping(source = "id", target = "id"),
             @Mapping(source = "projectDO.projectName", target = "contractName"),
             @Mapping(source = "projectDO.projectType", target = "contractType"),
-            @Mapping(source = "projectDO.projectDesc",target = "contractDesc")
+            @Mapping(source = "projectDO.projectDesc", target = "contractDesc")
     })
     ContractDO projectToContract(ProjectDO projectDO);
 

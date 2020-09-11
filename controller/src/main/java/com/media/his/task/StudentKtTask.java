@@ -30,7 +30,7 @@ public class StudentKtTask extends RecursiveTask<List<StudentKtDO>> {
         } else {
             int middle = (end + start) / 2;
             StudentKtTask t1 = new StudentKtTask(start, middle, studentKtService);
-            StudentKtTask t2 = new StudentKtTask(middle +1,end,studentKtService);
+            StudentKtTask t2 = new StudentKtTask(middle + 1, end, studentKtService);
             ForkJoinTask<List<StudentKtDO>> fork = t1.fork();
             ForkJoinTask<List<StudentKtDO>> fork1 = t2.fork();
             List<StudentKtDO> join = fork.join();

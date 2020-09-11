@@ -7,5 +7,5 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public interface PeopleService extends IService<PeopleDO>{
+public interface PeopleService extends IService<PeopleDO> {
 }
