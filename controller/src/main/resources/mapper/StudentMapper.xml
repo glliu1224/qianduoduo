@@ -40,4 +40,14 @@
         SELECT student.name,student.phone_number,student.address,student.address from student WHERE id
         BETWEEN #{start} AND #{end}
     </select>
+
+    <select id="findStudentDOByName" resultType="com.media.his.entity.StudentDO">
+        SELECT * FROM student
+        <if test="list != null and list.size != 0">
+            WHERE name IN
+            <foreach collection="list" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+    </select>
 </mapper>

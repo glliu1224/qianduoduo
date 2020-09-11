@@ -15,4 +15,6 @@ public interface StudentKtService extends IService<StudentKtDO> {
     List<StudentKtDO> findAllStudentKtDOByStartAndEnd(int start, int end);
 
     int getMaxId();
+
+    List<StudentKtDO> getStudentByName(List<String> list);
 }

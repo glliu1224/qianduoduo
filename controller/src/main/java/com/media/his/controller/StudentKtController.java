@@ -8,7 +8,10 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
@@ -47,5 +50,14 @@ public class StudentKtController {
         pool.shutdown();
         log.info("获取集合数据耗时--->{}", System.currentTimeMillis() - str);
         return list;
+    }
+
+    @GetMapping("/getStudentKtByName")
+    public List<StudentKtDO> getStudentKtByName() {
+        List<String> list = new LinkedList<>();
+        list.add("贡凤");
+        list.add("寇艳翠");
+        list.add("赖希贞");
+        return studentKtService.getStudentByName(list);
     }
 }

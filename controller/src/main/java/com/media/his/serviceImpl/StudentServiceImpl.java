@@ -62,4 +62,9 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper,StudentDO> imp
     public List<StudentDO> findAllPhoneNumber(int start,int end){
         return baseMapper.findAllPhoneNumber(start,end);
     }
+
+    @Override
+    public List<StudentDO> findStudentDOByName(List<String> list) {
+        return baseMapper.findStudentDOByName(list);
+    }
 }

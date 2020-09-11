@@ -36,4 +36,10 @@ public class StudentKtServiceImpl extends ServiceImpl<StudentKtMapper, StudentKt
     public int getMaxId() {
         return studentKtMapper.selectMaxId();
     }
+
+    @Override
+    public List<StudentKtDO> getStudentByName(List<String> list) {
+
+        return baseMapper.selectStudentKtByName(list);
+    }
 }

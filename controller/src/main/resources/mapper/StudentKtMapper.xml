@@ -32,4 +32,14 @@
     <select id="selectMaxId" resultType="java.lang.Integer">
         SELECT max(id) from student_kt
     </select>
+
+    <select id="selectStudentKtByName" resultType="com.media.his.entity.StudentKtDO">
+        SELECT * FROM student_kt
+        <if test="list != null and list.size != 0">
+            WHERE name IN
+            <foreach collection="list" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+    </select>
 </mapper>

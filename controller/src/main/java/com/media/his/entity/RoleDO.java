@@ -1,7 +1,9 @@
 package com.media.his.entity;
 
-import java.util.Date;
+import lombok.Data;
 
+import java.util.Date;
+@Data
 public class RoleDO {
     private Integer id;
 
@@ -11,35 +13,25 @@ public class RoleDO {
 
     private Date updateTime;
 
-    public Integer getId() {
-        return id;
-    }
+    static class Builder{
+        private RoleDO roleDO;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+        public Builder(RoleDO roleDO) {
+            this.roleDO = roleDO;
+        }
 
-    public String getRoleName() {
-        return roleName;
-    }
+        public Builder setRoleName(String roleName) {
+            roleDO.setRoleName(roleName);
+            return this;
+        }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName == null ? null : roleName.trim();
-    }
+        public Builder setCreateTime(Date createTime) {
+            roleDO.setCreateTime(createTime);
+            return this;
+        }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+        public RoleDO build() {
+            return roleDO;
+        }
     }
 }
