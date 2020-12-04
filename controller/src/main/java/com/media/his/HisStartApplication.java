@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Import;
 @MapperScan("com.media.his.mapper")
 @Import({SystemInitConfig.class})
 public class HisStartApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(HisStartApplication.class, args);
     }
